@@ -14,7 +14,8 @@
 /* Start out with 25 minutes */
 var DEFAULT_MINUTES = 25;
 
-var now, before = new Date();
+/* Sets the now timer to be equal to the current date */
+var start = new Date();
 var minutes = 0, seconds = 0;
 
 /* Whether the timer is ticking or not */
@@ -62,8 +63,31 @@ var decrementByOneSecond = function() {
         minutes--;
     }
 
+    var now = new Date().getTime();
+    var diff = (now - start);
+
+    var incr;
+    if (diff > 1000)
+    {
+        incr = diff - 1000;
+    } else {
+        incr = 1000 - diff;
+    }
+    console.log("diff = " + diff);
+    console.log(incr);
     updateTime(minutes, seconds);
-    timer();
+    timer(incr);
+}
+
+/* +-----------------------------------------+
+ * | timer                                   |
+ * |                                         |
+ * | Set a timeout of x milliseconds to call |
+ * | decrementByoneSecond.                   |
+ * +-----------------------------------------+ */
+function timer(milliseconds) {
+    start = new Date().getTime();
+    timeOutId = setTimeout(decrementByOneSecond, milliseconds);
 }
 
 /* +-----------------------------------------+
@@ -75,16 +99,7 @@ var decrementByOneSecond = function() {
 function reset() {
     seconds = 0;
     minutes = DEFAULT_MINUTES;
-}
-
-/* +-----------------------------------------+
- * | timer                                   |
- * |                                         |
- * | Set a timeout of 1000 seconds to call   |
- * | decrementByoneSecond.                   |
- * +-----------------------------------------+ */
-function timer() {
-    timeOutId = setTimeout(decrementByOneSecond, 1000);
+    document.title = "Pomodoro Timer";
 }
 
 /* +-----------------------------------------+
@@ -94,7 +109,7 @@ pausePlayButton.onclick = function() {
     if (isRunning == false) {
         isRunning = true;
         pausePlayButton.innerHTML = "Pause";
-        timer();
+        timer(1000);
     } else {
         isRunning = false;
         clearTimeout(timeOutId);

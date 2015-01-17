@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+	<title>CSS Clock</title>
+	<style type="text/css" media="screen">
+	body {
+		color: #fff;
+		font-family: "HelveticaNeue", Helvetica, sans-serif;
+		background:#292929;
+	}
+
+	#container {
+		width: 1030px;
+		margin:0 auto;
+		height: 100%;
+		-webkit-perspective: 2500;
+		-webkit-perspective-origin:center center;
+	}
+
+	#stage {
+		width: 100%;
+		height: 100%;
+		-webkit-transition: -webkit-transform 2s;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform:translateZ(-300px);
+
+	}
+
+	.wheel {
+		height: 150px;
+		width: 150px;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transition: -webkit-transform 1s;
+	}
+
+	.plane {
+		font-family: "HelveticaNeue-CondensedBold", Helvetica, sans-serif;
+		font-weight:bold;
+		position: absolute;
+		height: 150px;
+		width: 150px;
+		-webkit-border-radius: 10px;
+		text-align: center;
+		font-size: 140px;
+		line-height:1;
+		background: rgba(10, 10, 10, 0.95);
+		border:1px solid rgba(255,255,255,0.2);
+		-webkit-transition: -webkit-transform 2s, opacity 2s;
+		-webkit-backface-visibility: visible;
+		text-shadow:0 -2px 0 rgba(0, 0, 0, 1);
+	}
+
+	#hours1 {
+		position:absolute;
+		top:250px;
+		left:0;
+	}
+
+	#hours2 {
+		position:absolute;
+		top:250px;
+		left:160px;
+	}
+
+	#minutes1 {
+		position:absolute;
+		top:250px;
+		left:360px;	
+	}
+	#minutes2 {
+		position:absolute;
+		top:250px;
+		left:520px;
+	}
+	#seconds1 {
+		position:absolute;
+		top:250px;
+		left:720px;
+	}
+	#seconds2 {
+		position:absolute;
+		top:250px;
+		left:880px;
+	}
+
+	.one {
+		-webkit-transform: translateZ(240px);
+	}
+
+	.two {
+		-webkit-transform: rotateX(36deg) translateZ(240px);
+	}
+
+	.three {
+		-webkit-transform: rotateX(72deg) translateZ(240px);
+	}
+
+	.four {
+		-webkit-transform: rotateX(108deg) translateZ(240px);
+	}
+
+	.five {
+		-webkit-transform: rotateX(144deg) translateZ(240px);
+	}
+
+	.six {
+		-webkit-transform: rotateX(180deg) translateZ(240px);
+	}
+
+	.seven {
+		-webkit-transform: rotateX(216deg) translateZ(240px);
+	}
+
+	.eight {
+		-webkit-transform: rotateX(252deg) translateZ(240px);
+	}
+
+	.nine {
+		-webkit-transform: rotateX(288deg) translateZ(240px);
+	}
+
+	.ten {
+		-webkit-transform: rotateX(324deg) translateZ(240px);
+	}
+	
+	#bar {
+		width:100%;
+		background:rgba(0,0,0,0.5);
+		position:absolute;
+		top:0;
+		left:0;
+		border-bottom:1px solid #333;
+	}
+	#bar a {
+		color:#fff;
+		line-height:2.2;
+		margin:0 20px;
+		text-decoration:none;
+		font-family:sans-serif;
+		font-size:12px;
+	}
+	#bar a:link, #bar a:visited {
+		color:#fff;
+	}
+	#bar a:hover, #bar a:active {
+		color:#bf0222;
+	}
+	
+	.twitter-share-button {
+		float:right;
+		text-align:right;
+	}
+
+
+	</style>
+	<meta name="viewport" content="width=1050" />
+</head>
+<body>
+
+	<div id="bar">
+			<a href="http://www.gesteves.com">&larr; Home</a>
+			<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.gesteves.com%2Fexperiments%2Fclock.html&amp;text=CSS3%20Clock&amp;via=gesteves" class="twitter-share-button" onclick="window.open('http://twitter.com/share?url=http%3A%2F%2Fwww.gesteves.com%2Fexperiments%2Fclock.html&amp;text=CSS3%20Clock&amp;via=gesteves', '','height=450,width=550,location=no,toolbar=no,status=no');return false;">Tweet it!</a>
+	</div>
+
+	<div id="container">
+		<div id="stage">
+
+			<div id="hours1" class="wheel">
+				<div class="plane one">0</div>
+				<div class="plane two">1</div>
+				<div class="plane three">2</div>
+				<div class="plane four"></div>
+				<div class="plane five"></div>
+				<div class="plane six"></div>
+				<div class="plane seven"></div>
+				<div class="plane eight"></div>
+				<div class="plane nine"></div>
+				<div class="plane ten"></div>
+			</div>
+
+			<div id="hours2" class="wheel">
+				<div class="plane one">0</div>
+				<div class="plane two">1</div>
+				<div class="plane three">2</div>
+				<div class="plane four">3</div>
+				<div class="plane five">4</div>
+				<div class="plane six">5</div>
+				<div class="plane seven">6</div>
+				<div class="plane eight">7</div>
+				<div class="plane nine">8</div>
+				<div class="plane ten">9</div>
+			</div>
+
+			<div id="minutes1" class="wheel">
+				<div class="plane one">0</div>
+				<div class="plane two">1</div>
+				<div class="plane three">2</div>
+				<div class="plane four">3</div>
+				<div class="plane five">4</div>
+				<div class="plane six">5</div>
+				<div class="plane seven"></div>
+				<div class="plane eight"></div>
+				<div class="plane nine"></div>
+				<div class="plane ten"></div>
+			</div>
+
+			<div id="minutes2" class="wheel">
+				<div class="plane one">0</div>
+				<div class="plane two">1</div>
+				<div class="plane three">2</div>
+				<div class="plane four">3</div>
+				<div class="plane five">4</div>
+				<div class="plane six">5</div>
+				<div class="plane seven">6</div>
+				<div class="plane eight">7</div>
+				<div class="plane nine">8</div>
+				<div class="plane ten">9</div>
+			</div>
+
+			<div id="seconds1" class="wheel">
+				<div class="plane one">0</div>
+				<div class="plane two">1</div>
+				<div class="plane three">2</div>
+				<div class="plane four">3</div>
+				<div class="plane five">4</div>
+				<div class="plane six">5</div>
+				<div class="plane seven"></div>
+				<div class="plane eight"></div>
+				<div class="plane nine"></div>
+				<div class="plane ten"></div>
+			</div>
+
+			<div id="seconds2" class="wheel">
+				<div class="plane one">0</div>
+				<div class="plane two">1</div>
+				<div class="plane three">2</div>
+				<div class="plane four">3</div>
+				<div class="plane five">4</div>
+				<div class="plane six">5</div>
+				<div class="plane seven">6</div>
+				<div class="plane eight">7</div>
+				<div class="plane nine">8</div>
+				<div class="plane ten">9</div>
+			</div>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+
+
+	function setRotation(el, ang) {
+		var webkitTransform = document.getElementById(el).style.webkitTransform;
+		var current_angle = parseInt(webkitTransform.match(/\d+/));
+		webkitTransform ? current_angle = parseInt(webkitTransform.match(/\d+/)) : current_angle = 0;
+		var rotations = Math.floor(current_angle/360);
+		if ((current_angle-360*rotations) != ang) {
+			var new_angle;
+			ang == 0 ? new_angle = 360*(rotations+1) : new_angle = 360*rotations + ang;
+			document.getElementById(el).style.webkitTransform = "rotateX(-"+ new_angle +"deg)";		
+		}
+	}
+	function tickTock() {
+		var today = new Date();
+		var seconds1 = Math.floor(today.getSeconds() / 10);
+		var seconds2 = today.getSeconds() % 10;
+		var minutes1 = Math.floor(today.getMinutes() / 10);
+		var minutes2 = today.getMinutes() % 10;
+		var hours1 = Math.floor(today.getHours() / 10);
+		var hours2 = today.getHours() % 10;
+
+		setRotation("hours1", (hours1 * 36));
+		setRotation("hours2", (hours2 * 36));
+		setRotation("minutes1", (minutes1 * 36));
+		setRotation("minutes2", (minutes2 * 36));
+		setRotation("seconds1", (seconds1 * 36));
+		setRotation("seconds2", (seconds2 * 36));
+		setTimeout("tickTock()", 1000);
+	}
+	tickTock();
+	</script>
+</body>
+</html>

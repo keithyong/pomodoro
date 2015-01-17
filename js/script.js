@@ -4,40 +4,58 @@
  * | Keith Yong           |
  * | January 2015         |
  * +----------------------+
- * Basic stopwatch code based on
- * http://jsfiddle.net/Daniel_Hug/pvk6p/
- *
- * Elapsed time code based on
- * http://jsfiddle.net/7f6DX/31/
  */
 
 var isRunning = false;
+var pomodoro_time_seconds = 1500;
+var timer_done_sound = new Audio("sounds/KitchenTimerSound.mp3");
+
+document.title = "Pomodoro Timer";
 
 $("#timer").createTimer({
-  autostart: false,
-  time_in_seconds: 5,
-  buzzer: finished,
-  tick: function(timer, time_in_seconds, formatted_time) {
-    alert("HERO");
-  }
+    autostart: false,
+    time_in_seconds: pomodoro_time_seconds
 });
 
 $("#pausePlayButton").click(function() {
     if (isRunning == false) {
-        isRunning = true;
-        pausePlayButton.innerHTML = "Pause";
-        jQuery("#timer").startTimer();
+        resumeTimer();
     } else {
-        isRunning = false;
-        pausePlayButton.innerHTML = "Start";
-        $("#timer").pauseTimer();
+        startPause();
     }
 });
 
 $("#resetTimerButton").click(function() {
-
-})
+    resetTimer();
+});
 
 var finished = function(timer) {
-  alert("HI!");
+    resetTimer();
+    document.title = "Pomodoro Finished!";
+    timer_done_sound.play();
+}
+
+function resetTimer() {
+    $("#timer").resetTimer({
+        time_in_seconds: 5
+    });
+    startPause();
+    resetTitle();
+}
+function startPause() {
+    isRunning = false;
+    pausePlayButton.innerHTML = "Start";
+    $("#timer").pauseTimer();
+}
+
+function resumeTimer() {
+    isRunning = true;
+    pausePlayButton.innerHTML = "Pause";
+    jQuery("#timer").startTimer({
+        buzzer: finished
+    });
+}
+
+function resetTitle() {
+    document.title = "25:00";
 }

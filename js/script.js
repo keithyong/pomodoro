@@ -8,8 +8,8 @@
 
 var isRunning = false;
 var isWork = true;
-var pomodoro_time_seconds = 1;
-var break_time_seconds = 6;
+var pomodoro_time_seconds = 3;
+var break_time_seconds = 2;
 var timer_done_sound = new Audio("sounds/KitchenTimerSound.mp3");
 
 document.title = "Pomodoro Timer";

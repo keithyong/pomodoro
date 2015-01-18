@@ -54,8 +54,8 @@
             timer.data('countdown.duration', current_time * 1000);
             var formatted_time = dateFormat(new Date(current_time * 1000), settings.time_format);
             timer.text(formatted_time);
-            document.title = formatted_time;
             settings.tick(timer, current_time, formatted_time);
+            document.title = formatted_time;
 
             //If the timer completed, fire the buzzer callback
             current_time == 0 && settings.buzzer(timer);

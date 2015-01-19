@@ -76,10 +76,15 @@ h3 {
     font-family: "PT Sans Narrow", sans-serif;
     font-size: 25px;
 }
+#timer_row {
+    position: relative;
+}
 #status {
-    font-family: "Arial", sans-serif;
-    font-size; 4px;
+    font-family: "Helvetica", sans-serif;
+    font-size: 8px;
     position: absolute;
+    left: 34px;
+    top: 20px;
 }
 #work_background {
     background: -webkit-linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* Chrome 10+, Saf5.1+ */

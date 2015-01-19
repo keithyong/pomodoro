@@ -9,8 +9,10 @@
 var isRunning = false;
 var isWork = true;
 var soundOn = true;
-var pomodoro_time_seconds = 3;
-var break_time_seconds = 2;
+var pomodoro_time_seconds = 1500;
+var break_time_seconds = 600;
+var status_work_text = "WORK";
+var status_break_text = "BREAK";
 var timer_done_sound = new Audio("sounds/KitchenTimerSound.mp3");
 
 document.title = "Pomodoro Timer";
@@ -19,56 +21,90 @@ var work_bg = document.getElementById("work_background");
 var break_bg = document.getElementById("break_background");
 var statusLine = document.getElementById("status");
 
-$("#timer").createTimer({
-    autostart: false,
-    time_in_seconds: pomodoro_time_seconds
-});
+/* Default timer is work timer */
+setUpWorkTimer();
 
 $("#pausePlayButton").click(function() {
-    if (isRunning == false) {
+    if (isRunning === false) {
         resumeTimer(isWork);
     } else {
-        startPause();
+        pauseTimer();
     }
 });
 
 $("#workTimerButton").click(function() {
-    resetTimer(true);
+    setUpWorkTimer();
 });
 
 $("#breakTimerButton").click(function() {
-    resetTimer(false);
+    setUpBreakTimer();
 });
-/* Start the break */
+
 var finishedWork = function(timer) {
-    isWork = false;
-    resetTimer();
-    document.title = "Pomodoro Finished!";
     playTimerDoneSound();
+    document.title = "Pomodoro Finished!";
+    setUpBreakTimer();
 }
 
 var finishedBreak = function(timer) {
-    isWork = true;
-    resetTimer();
     playTimerDoneSound();
     document.title = "Break Finished!";
-    statusLine.innerHTML = "Work";
-    pausePlayButton.innerHTML = "Start Work";
-    transitionToWorkBackground();
+    setUpWorkTimer();
 }
 
 function setUpBreakTimer() {
-    statusLine.innerHTML = "Break";
+    statusLine.innerHTML = status_break_text;
     pausePlayButton.innerHTML = "Start Break";
     transitionToBreakBackground();
+    isRunning = false;
+    isWork = false;
 
     $("#timer").createTimer({
         autostart: false,
         time_in_seconds: break_time_seconds,
-        buzzer: finishedBreak,
-        tick: setTitleAsTimeLeft("#timer")
+        buzzer: finishedBreak
     });
 }
+
+function setUpWorkTimer() {
+    statusLine.innerHTML = status_work_text;
+    pausePlayButton.innerHTML = "Start Work";
+    transitionToWorkBackground();
+    isRunning = false;
+    isWork = true;
+
+    $("#timer").createTimer({
+        autostart: false,
+        time_in_seconds: pomodoro_time_seconds,
+        buzzer: finishedWork
+    });
+}
+
+function pauseTimer() {
+    isRunning = false;
+    pausePlayButton.innerHTML = "Resume";
+    $("#timer").pauseTimer();
+}
+
+function resumeTimer(isWork) {
+    isRunning = true;
+    pausePlayButton.innerHTML = "Pause";
+
+    var buzzerCallbackFunc;
+    if (isWork === true)
+        buzzerCallbackFunc = finishedWork;
+    else
+        buzzerCallbackFunc = finishedBreak;
+
+    jQuery("#timer").startTimer({
+        buzzer: buzzerCallbackFunc
+    });
+}
+
+function resetTitle() {
+    document.title = "25:00";
+}
+
 function transitionToBreakBackground() {
     work_bg.style.opacity = 0;
 }
@@ -81,44 +117,3 @@ function playTimerDoneSound() {
     timer_done_sound.play();
 }
 
-function resetTimer(isWork) {
-    var timeInSeconds;
-    if (isWork === true)
-        timeInSeconds = pomodoro_time_seconds;
-    else 
-        timeInSeconds = break_time_seconds;
-
-    $("#timer").resetTimer({
-        autostart: true,
-        time_in_seconds: pomodoro_time_seconds
-    });
-    startPause();
-    resetTitle();
-}
-
-function startPause() {
-    isRunning = false;
-    pausePlayButton.innerHTML = "Resume";
-    $("#timer").pauseTimer();
-}
-
-function resumeTimer(isWork) {
-    isRunning = true;
-    pausePlayButton.innerHTML = "Pause";
-    var buzzerCallbackFunc;
-    if (isWork === true)
-        buzzerCallbackFunc = finishedWork;
-    else
-        buzzerCallbackFunc = finishedBreak;
-    jQuery("#timer").startTimer({
-        buzzer: buzzerCallbackFunc,
-        tick: setTitleAsTimeLeft("#timer")
-    });
-}
-
-function resetTitle() {
-    document.title = "25:00";
-}
-
-function setTitleAsTimeLeft(timerId) {
-}

@@ -8,9 +8,9 @@
 
 var isRunning = false;
 var isWork = true;
-var soundOn = true;
-var pomodoro_time_seconds = 1500;
-var break_time_seconds = 600;
+var soundEnabled = true;
+var pomodoro_time_seconds = 3;
+var break_time_seconds = 2;
 var status_work_text = "WORK";
 var status_break_text = "BREAK";
 var timer_done_sound = new Audio("sounds/KitchenTimerSound.mp3");
@@ -20,6 +20,7 @@ document.title = "Pomodoro Timer";
 var work_bg = document.getElementById("work_background");
 var break_bg = document.getElementById("break_background");
 var statusLine = document.getElementById("status");
+var sound_toggle_icon = document.getElementById("sound_on_icon");
 
 /* Default timer is work timer */
 setUpWorkTimer();
@@ -39,6 +40,16 @@ $("#workTimerButton").click(function() {
 $("#breakTimerButton").click(function() {
     setUpBreakTimer();
 });
+
+function soundOnIconClick() {
+    if (soundEnabled === true) {
+        sound_toggle_icon.src="images/soundoff.svg";
+        soundEnabled = false;
+    } else {
+        sound_toggle_icon.src="images/soundon.svg";
+        soundEnabled = true;
+    }
+}
 
 var finishedWork = function(timer) {
     playTimerDoneSound();
@@ -114,6 +125,7 @@ function transitionToWorkBackground() {
 }
 
 function playTimerDoneSound() {
-    timer_done_sound.play();
+    if (soundEnabled === true)
+        timer_done_sound.play();
 }
 

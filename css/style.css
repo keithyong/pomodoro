@@ -53,13 +53,24 @@ button:hover {
     float: right;
 }
 
-#sound_on_logo {
+#sound_on_icon {
     position: absolute;
     top: 16px;
     right: 23px;
     width: 20px;
     height: 20px;
 }
+
+#sound_click {
+    position: absolute;
+    top: 16px;
+    right: 23px;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    background-color: black;
+}
+
 .container {
     position: relative;
     max-width: 400px;

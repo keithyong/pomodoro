@@ -9,8 +9,8 @@
 var isRunning = false;
 var isWork = true;
 var soundEnabled = true;
-var pomodoro_time_seconds = 3;
-var break_time_seconds = 2;
+var pomodoro_time_seconds = 1500;
+var break_time_seconds = 600;
 var status_work_text = "WORK";
 var status_break_text = "BREAK";
 var timer_done_sound = new Audio("sounds/KitchenTimerSound.mp3");

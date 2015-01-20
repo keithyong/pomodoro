@@ -115,6 +115,9 @@ h3 {
     background:         linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* W3C */
 }
 @media screen and (max-width: 550px) {
+    .container {
+        margin-top: 50px;
+    }
     #work_background {
         background: -webkit-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* Chrome 10+, Saf5.1+ */
         background:    -moz-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* FF3.6+ */
@@ -132,9 +135,7 @@ h3 {
     }
 }
 @media screen and (max-width: 470px) {
-    .container {
-        margin-top: 50px;
-    }
+
     #timer {
         font-size: 90px;
     }

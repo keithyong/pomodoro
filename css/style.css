@@ -1,3 +1,4 @@
+
 html {
     min-height: 100%;
     position: relative;
@@ -46,6 +47,7 @@ button:hover {
     margin: 0;
     border: 1px solid #DDD;
 }
+
 
 #sound_toggle {
     height: 20px;
@@ -111,4 +113,48 @@ h3 {
     background:     -ms-linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* IE10 */
     background:      -o-linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* Opera 11.10+ */
     background:         linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* W3C */
+}
+@media screen and (max-width: 550px) {
+    #work_background {
+        background: -webkit-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* Chrome 10+, Saf5.1+ */
+        background:    -moz-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* FF3.6+ */
+        background:     -ms-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* IE10 */
+        background:      -o-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* Opera 11.10+ */
+        background:         linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* W3C */
+    }
+
+    #break_background {
+        background: -webkit-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* Chrome 10+, Saf5.1+ */
+        background:    -moz-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* FF3.6+ */
+        background:     -ms-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* IE10 */
+        background:      -o-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* Opera 11.10+ */
+        background:         linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* W3C */
+    }
+}
+@media screen and (max-width: 470px) {
+    .container {
+        margin-top: 50px;
+    }
+    #timer {
+        font-size: 90px;
+    }
+
+}
+@media screen and (max-width: 440px) {
+    #timer {
+        font-size: 85px;
+    }
+}
+@media screen and (max-width: 430px) {
+    #timer {
+        font-size: 80px;
+    }
+
+}
+@media screen and (max-width: 330px) {
+    #timer {
+        padding-top: 10px;
+        font-size: 50px;
+    }
+
 }

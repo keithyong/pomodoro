@@ -55,7 +55,7 @@ button:hover {
     float: right;
 }
 
-#sound_on_icon {
+#sound_toggle_icon {
     position: absolute;
     top: 16px;
     right: 23px;
@@ -151,12 +151,13 @@ h3 {
     #timer {
         font-size: 80px;
     }
-
 }
 @media screen and (max-width: 330px) {
     #timer {
         padding-top: 10px;
-        font-size: 50px;
+        font-size: 75px;
     }
-
+    @viewport {
+        initial-scale: 0.8;
+    }
 }

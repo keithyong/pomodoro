@@ -1,15 +1,17 @@
-
 html {
     min-height: 100%;
     position: relative;
 }
+
 div {
 }
+
 body {
     color: white;
     text-align: center;
     height: 100%;
 }
+
 .background {
     position: absolute;
     top: 0;
@@ -23,6 +25,7 @@ body {
     -o-transition: opacity .3s ease-in-out;
     transition: opacity .3s ease-in-out;
 }
+
 button, button:focus {
     color: #DDD;
     margin: 0;
@@ -30,6 +33,7 @@ button, button:focus {
     margin: 10px 0 0 0;
     padding: 0;
 }
+
 button:hover {
     color: #666;
     background-color: #DDD;
@@ -40,14 +44,19 @@ button:hover {
     -o-transition: background-color .1s ease-in-out;
     transition: background-color .1s ease-in-out;
 }
+
 #timer {
     font-size: 100px;
     font-family: "Droid Sans Mono";
     border-radius: 5px;
     margin: 0;
     border: 1px solid #DDD;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: -none;
+    -ms-user-select: none;
+    user-select: none;
 }
-
 
 #sound_toggle {
     height: 20px;
@@ -83,6 +92,7 @@ button:hover {
     border: 1px solid #DDD;
     border-radius: 5px;
 }
+
 h3 {
     margin: 0;
     padding: 0;
@@ -90,9 +100,11 @@ h3 {
     font-family: "PT Sans Narrow", sans-serif;
     font-size: 25px;
 }
+
 #timer_row {
     position: relative;
 }
+
 #status {
     font-family: "Helvetica", sans-serif;
     font-size: 8px;
@@ -100,6 +112,7 @@ h3 {
     left: 34px;
     top: 20px;
 }
+
 #work_background {
     background: -webkit-linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* Chrome 10+, Saf5.1+ */
     background:    -moz-linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* FF3.6+ */
@@ -115,6 +128,7 @@ h3 {
     background:      -o-linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* Opera 11.10+ */
     background:         linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* W3C */
 }
+
 @media screen and (max-width: 550px) {
     .container {
         margin-top: 50px;
@@ -135,6 +149,7 @@ h3 {
         background:         linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* W3C */
     }
 }
+
 @media screen and (max-width: 470px) {
 
     #timer {
@@ -142,16 +157,19 @@ h3 {
     }
 
 }
+
 @media screen and (max-width: 440px) {
     #timer {
         font-size: 85px;
     }
 }
+
 @media screen and (max-width: 430px) {
     #timer {
         font-size: 80px;
     }
 }
+
 @media screen and (max-width: 330px) {
     #timer {
         padding-top: 10px;

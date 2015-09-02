@@ -11,26 +11,28 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             </head>
             <body>
-                <div class="container">
-                    <img type="image/svg+xml" src="images/soundon.svg" id="sound_toggle_icon" onclick="soundToggleClick()"></img>
-                    <div class="row">
-                        <div class="twelve columns">
-                            <h3>pomodoro timer</h3>
+                <div class="timer-wrapper">
+                    <div class="container">
+                        <img type="image/svg+xml" src="images/soundon.svg" id="sound_toggle_icon" onclick="soundToggleClick()"></img>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <h3>pomodoro timer</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row" id="timer_row">
-                        <p id="status">WORK</p>
-                        <p class="u-full-width" id="timer">25:00</p>
-                    </div>
-                    <div class="row">
-                        <div class="six columns">
-                            <button class="u-full-width" id="pausePlayButton">Start</button>
+                        <div class="row" id="timer_row">
+                            <p id="status">WORK</p>
+                            <p class="u-full-width" id="timer">25:00</p>
                         </div>
-                        <div class="three columns">
-                            <button class="u-full-width" id="workTimerButton">Work</button>
-                        </div>
-                        <div class="three columns">
-                            <button class="u-full-width" id="breakTimerButton">Break</button>
+                        <div class="row">
+                            <div class="six columns">
+                                <button class="u-full-width" id="pausePlayButton">Start</button>
+                            </div>
+                            <div class="three columns">
+                                <button class="u-full-width" id="workTimerButton">Work</button>
+                            </div>
+                            <div class="three columns">
+                                <button class="u-full-width" id="breakTimerButton">Break</button>
+                            </div>
                         </div>
                     </div>
                 </div>

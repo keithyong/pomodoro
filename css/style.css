@@ -3,9 +3,6 @@ html {
     position: relative;
 }
 
-div {
-}
-
 body {
     color: white;
     text-align: center;
@@ -151,11 +148,9 @@ h3 {
 }
 
 @media screen and (max-width: 470px) {
-
     #timer {
         font-size: 90px;
     }
-
 }
 
 @media screen and (max-width: 440px) {
@@ -167,6 +162,12 @@ h3 {
 @media screen and (max-width: 430px) {
     #timer {
         font-size: 80px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .timer-wrapper {
+        margin: 15px;
     }
 }
 

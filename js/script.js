@@ -85,7 +85,11 @@ function timeModeToggleClick() {
     } else {
         state.time_mode = "2510";
     }
-    setUpWorkTimer();
+    if (state.isWork) {
+        setUpWorkTimer();
+    } else {
+        setUpBreakTimer();
+    }
 }
 
 /* +--- setUpBreakTimer -------------------------+

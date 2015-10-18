@@ -81,11 +81,11 @@ function soundToggleClick() {
  * +---------------------------------------------+ */
 function timeModeToggleClick() {
     if (time_mode_switch.checked === true) {
-        state.time_mode = "4515";
+        updateTimeMode("4515");
     } else {
-        state.time_mode = "2510";
+        updateTimeMode("2510");
     }
-    if (state.isWork) {
+    if (state.is_work === true) {
         setUpWorkTimer();
     } else {
         setUpBreakTimer();
@@ -122,16 +122,6 @@ function setUpBreakTimer() {
 function setUpWorkTimer() {
     if (onoffswitch_time_mode.hasClass('break_mode'))
         onoffswitch_time_mode.toggleClass('break_mode work_mode');
-
-    if (state.time_mode === "2510") {
-        pomodoro_time_seconds = 1500;
-        break_time_seconds = 600;
-    } else if (state.time_mode === "4515") {
-        pomodoro_time_seconds = 2700;
-        break_time_seconds = 900;
-    } else {
-        console.log("Invalid config, time_mode must be 2510 or 4515")
-    }
 
     statusLine.innerHTML = config.status_work_text;
     pausePlayButton.innerHTML = "Start Work";

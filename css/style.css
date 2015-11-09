@@ -18,8 +18,6 @@ body {
     z-index: -1;
     overflow: hidden;
     -webkit-transition: opacity .3s ease-in-out;
-    -moz-transition: opacity .3s ease-in-out;
-    -o-transition: opacity .3s ease-in-out;
     transition: opacity .3s ease-in-out;
 }
 
@@ -37,8 +35,6 @@ button:hover {
     border: 1px solid #DDD;
 
     -webkit-transition: background-color .1s ease-in-out;
-    -moz-transition: background-color .1s ease-in-out;
-    -o-transition: background-color .1s ease-in-out;
     transition: background-color .1s ease-in-out;
 }
 
@@ -49,7 +45,6 @@ button:hover {
     margin: 0;
     border: 1px solid #DDD;
     -moz-user-select: -moz-none;
-    -khtml-user-select: none;
     -webkit-user-select: -none;
     -ms-user-select: none;
     user-select: none;
@@ -118,18 +113,14 @@ h3 {
 }
 
 #work_background {
-    background: -webkit-linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* Opera 11.10+ */
+    background: -webkit-linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* Chrome 10+, Saf5.1+ */ /* FF3.6+ */ /* IE10 */ /* Opera 11.10+ */
+    background:         -webkit-linear-gradient(0deg, #4D4F50 10%, #35373c 90%);
     background:         linear-gradient(90deg, #4D4F50 10%, #35373c 90%); /* W3C */
 }
 
 #break_background {
-    background: -webkit-linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* Opera 11.10+ */
+    background: -webkit-linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* Chrome 10+, Saf5.1+ */ /* FF3.6+ */ /* IE10 */ /* Opera 11.10+ */
+    background:         -webkit-linear-gradient(0deg, #4495a8 10%, #43aba3 90%);
     background:         linear-gradient(90deg, #4495a8 10%, #43aba3 90%); /* W3C */
 }
 
@@ -138,18 +129,14 @@ h3 {
         margin-top: 50px;
     }
     #work_background {
-        background: -webkit-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* Chrome 10+, Saf5.1+ */
-        background:    -moz-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* FF3.6+ */
-        background:     -ms-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* IE10 */
-        background:      -o-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* Opera 11.10+ */
+        background: -webkit-linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* Chrome 10+, Saf5.1+ */ /* FF3.6+ */ /* IE10 */ /* Opera 11.10+ */
+        background:         -webkit-linear-gradient(90deg, #35373c 10%, #4D4F50 90%);
         background:         linear-gradient(0deg, #35373c 10%, #4D4F50 90%); /* W3C */
     }
 
     #break_background {
-        background: -webkit-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* Chrome 10+, Saf5.1+ */
-        background:    -moz-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* FF3.6+ */
-        background:     -ms-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* IE10 */
-        background:      -o-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* Opera 11.10+ */
+        background: -webkit-linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* Chrome 10+, Saf5.1+ */ /* FF3.6+ */ /* IE10 */ /* Opera 11.10+ */
+        background:         -webkit-linear-gradient(80deg, #4495a8 10%, #43aba3 90%);
         background:         linear-gradient(10deg, #4495a8 10%, #43aba3 90%); /* W3C */
     }
 }
@@ -182,6 +169,12 @@ h3 {
     #timer {
         padding-top: 10px;
         font-size: 75px;
+    }
+    @-ms-viewport {
+        initial-scale: 0.8;
+    }
+    @-o-viewport {
+        initial-scale: 0.8;
     }
     @viewport {
         initial-scale: 0.8;
@@ -226,6 +219,7 @@ h3 {
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
+    -webkit-transition: margin 0.3s ease-in 0s;
     transition: margin 0.3s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
@@ -250,6 +244,7 @@ h3 {
     position: absolute; top: 0; bottom: 0;
     right: 29px;
     border: 1px solid #DDD; border-radius: 5px;
+    -webkit-transition: all 0.3s ease-in 0s;
     transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
